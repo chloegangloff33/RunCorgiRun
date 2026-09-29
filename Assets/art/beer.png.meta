@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 19f1401cc8b35bc40ba92b2a3ccb2b22
+guid: 78490f8f488bc8c4c8b0349fefd01d88
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3303162963338793797
-    second: Corgi_0
+      213: 6779204642115704726
+    second: beer_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Corgi_0
+      name: beer_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 9
-        width: 98
-        height: 110
+        x: 3
+        y: 3
+        width: 56
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5431909d63137dd20800000000000000
-      internalID: 3303162963338793797
+      spriteID: 6975cf844b2941e50800000000000000
+      internalID: 6779204642115704726
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Corgi_0: 3303162963338793797
+      beer_0: 6779204642115704726
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
