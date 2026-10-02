@@ -11,7 +11,7 @@ public class keyboard_Input : MonoBehaviour
     //get the buttons pressed
     Keyboard keyboard = Keyboard.current;
 
-    if (keyboard.wKey.wasPressedThisFrame)
+    if (keyboard.wKey.wasPressedThisFrame) //ispressed this frame? - make a variable cus its red when i do that
     {
       corgi.Move(Vector2.up);
     }

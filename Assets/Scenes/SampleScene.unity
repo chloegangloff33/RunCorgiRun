@@ -368,6 +368,7 @@ GameObject:
   - component: {fileID: 1008143635}
   - component: {fileID: 1008143634}
   - component: {fileID: 1008143636}
+  - component: {fileID: 1008143637}
   m_Layer: 0
   m_Name: Placers
   m_TagString: Untagged
@@ -415,7 +416,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05a6ceebb1b7fe4daf5940b600bf708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeerPlacer
-  BeerPrefab: {fileID: 2735942923659604762, guid: f2fca1de8669a5741893dd4a8d48a437, type: 3}
+  TimedObjectPrefab: {fileID: 2735942923659604762, guid: f2fca1de8669a5741893dd4a8d48a437, type: 3}
+  minimumSecondsToWait: 1
+  maximumSecondsToWait: 3
+--- !u!114 &1008143637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008143633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2f4323c89e87f4fa71f1349fbf3b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BonePlacer
+  TimedObjectPrefab: {fileID: 1158342891507697539, guid: 5867fb26277f7db4cb3335a3308bdcc4, type: 3}
+  minimumSecondsToWait: 1
+  maximumSecondsToWait: 3
 --- !u!1 &1406240942
 GameObject:
   m_ObjectHideFlags: 0
