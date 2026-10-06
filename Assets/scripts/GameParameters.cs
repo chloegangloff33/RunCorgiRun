@@ -17,4 +17,8 @@ public class GameParameters
     public static float PillSecondsOnScreen = 2f;
     public static float PillMinimumSecondsToWait = 2f;
     public static float PillMaximumSecondsToWait = 5f;
+    
+    public static float WaterBowlSecondsOnScreen = 0.5f;
+    public static float WaterBowlMinimumSecondsToWait = 0.5f;
+    public static float WaterBowlMaximumSecondsToWait = 1f;
 }

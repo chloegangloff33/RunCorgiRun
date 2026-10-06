@@ -14,7 +14,32 @@ public class Corgi : MonoBehaviour
         FaceCorrectDirection(direction);
         Vector2 moveAmount = direction * GameParameters.CorgiMoveSpeed * Time.deltaTime;
         CorgiSpriteRenderer.transform.Translate(direction);
+        
+        //simple v good
+        CorgiSpriteRenderer.transform.position = SpriteTools.ConstrainToScreen(CorgiSpriteRenderer);
+        
+        //POSSIBLE missing code but idk
     }
+
+   
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Beer"))
+        {
+            if (other.gameObject.CompareTag("Beer"))
+            {
+                print(message: "beer is beer");
+            }
+        }
+        else if (other.gameObject.CompareTag("Bone"))
+        {
+            print(message: "bone is bone");
+        }
+    }
+    
+    
+    
 
     private void FaceCorrectDirection(Vector2 direction)
     {
