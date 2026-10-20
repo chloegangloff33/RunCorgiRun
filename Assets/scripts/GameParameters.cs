@@ -8,6 +8,9 @@ public class GameParameters
 
     public static float CorgiDrunkSeconds = 5f;
     
+    public static int CorgiMinimumRandomMoveLength = 25;
+    public static int CorgiMaximumRandomMoveLength = 75;
+    
     public static float BeerSecondsOnScreen = 7f;
     public static float BeerMinimumSecondsToWait = 1f;
     public static float BeerMaximumSecondsToWait = 3f;
@@ -23,5 +26,9 @@ public class GameParameters
     public static float WaterBowlSecondsOnScreen = 0.5f;
     public static float WaterBowlMinimumSecondsToWait = 0.5f;
     public static float WaterBowlMaximumSecondsToWait = 1f;
+    
+    public static float MoonshineSecondsOnScreen = 5f;
+    public static float MoonshineMinimumSecondsToWait = 0.5f;
+    public static float MoonshineMaximumSecondsToWait = 2f;
     
 }

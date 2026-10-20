@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 1008143637}
   - component: {fileID: 1008143638}
   - component: {fileID: 1008143639}
+  - component: {fileID: 1008143640}
   m_Layer: 0
   m_Name: Placers
   m_TagString: Untagged
@@ -464,6 +465,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PillPlacer
   TimedObjectPrefab: {fileID: 6661895374299659872, guid: b0054284c15006b479796df7f00036b0, type: 3}
+  minimumSecondsToWait: 1
+  maximumSecondsToWait: 3
+--- !u!114 &1008143640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008143633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38b3674ff61228468987b3ae7a85a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoonshinePlacer
+  TimedObjectPrefab: {fileID: 9116681494642366161, guid: 0b6ce9b671bb0ea4ea6dfaab6e7b0e74, type: 3}
   minimumSecondsToWait: 1
   maximumSecondsToWait: 3
 --- !u!1 &1406240942
@@ -605,7 +621,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
