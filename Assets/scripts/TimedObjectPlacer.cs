@@ -1,21 +1,60 @@
 using System.Collections;
 using UnityEngine;
+using System.Linq;
+using System.Collections.Generic;
 
 public class TimedObjectPlacer : MonoBehaviour
 {
     public GameObject TimedObjectPrefab; //prefabs are always GameObjects
     
-    private bool isOKtoCreate = true;
-    
     public float minimumSecondsToWait = 1f;
     public float maximumSecondsToWait = 3f;
 
-    public void Update()
+    private bool isOKtoCreate = true;
+    private bool isActive = false;
+    private Coroutine countdownCoroutine;
+    
+    void Update()
     {
+        if (!isActive)
+            return; 
+        
         if (isOKtoCreate)
         {
-            StartCoroutine(routine:CountdownUntilCreation());
+            countdownCoroutine = StartCoroutine(routine:CountdownUntilCreation());
         }
+    }
+    
+
+    public void StartPlacing()
+    {
+        isActive = true;
+        isOKtoCreate = true;
+
+        if (countdownCoroutine != null)
+        {
+            StopCoroutine(countdownCoroutine);
+        }
+
+        CleanupPlacedObjects();
+    }
+
+    private void CleanupPlacedObjects()
+    {
+        //find obejects on board
+        List<GameObject> placedObjects = GameObject.FindGameObjectsWithTag(TimedObjectPrefab.tag).ToList();
+
+        //destroy them
+        for (int i = 0; i < placedObjects.Count; i++)
+        {
+            Destroy(placedObjects[i]);
+        }
+    }
+
+    public void StopPlacing()
+    {
+        isActive = false;
+        isOKtoCreate = false;
     }
 
     IEnumerator CountdownUntilCreation()

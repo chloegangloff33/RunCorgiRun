@@ -1,16 +1,21 @@
 using UnityEngine;
+using System;
 using System.Collections;
 using Random = UnityEngine.Random;
 
 
 public class Corgi : MonoBehaviour
 {
-    private SpriteRenderer CorgiSpriteRenderer;
-    public Sprite DrunkSprite;
     public Sprite SoberSprite;
-    private bool isDrunk;
-    private bool isPlastered;
+    public Sprite DrunkSprite;
+    
+    private SpriteRenderer CorgiSpriteRenderer;
+    private bool isDrunk = false;
+    private bool isPlastered = false;
     private Coroutine soberUpCoroutine;
+    
+    public UI UI;
+    public Game Game;
     
     private int randomMoveCounter = 0;
     private int lastRandomeDirection = 0;
@@ -29,6 +34,15 @@ public class Corgi : MonoBehaviour
         {
             MoveRandomly();
         }
+    }
+
+    public void Reset()
+    {
+            isPlastered = false;
+            isDrunk = false;
+            ChangeToSoberSprite();
+            CorgiSpriteRenderer.flipX = false;
+            transform.position = new Vector3(0,0,0);
     }
 
     private void MoveRandomly()
@@ -61,17 +75,21 @@ public class Corgi : MonoBehaviour
 
     public void MoveManually(Vector2 direction)
     {
-        if (isPlastered)
-            return;
-        Move(direction);
+        //if (!Game.IsPlaying())
+          //  return;
+        
+            if (isPlastered)
+                return;
+            Move(direction);
     }
+    
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public void Move(Vector2 direction) //vector 2 has an x and y built into it - like saying (intx, inty)
     {
-        
         direction = ApplyDrunkenness(direction);
         FaceCorrectDirection(direction);
-        Vector2 moveAmount = direction * GameParameters.CorgiMoveSpeed * Time.deltaTime;
+        Vector2 moveAmount = direction * (GameParameters.CorgiMoveSpeed * Time.deltaTime);
         CorgiSpriteRenderer.transform.Translate(direction); //(direction) should be (movement.x, movement.y, 0f) but missing code for that?
         
         //simple v good
@@ -131,7 +149,7 @@ public class Corgi : MonoBehaviour
     private void AddPointToScore()
     {
         ScoreKeeper.AddPoint();
-        print(message: "Score is: " + ScoreKeeper.GetScore());
+        UI.ShowScore();
     }
 
     private void GetDrunk()
@@ -156,13 +174,14 @@ public class Corgi : MonoBehaviour
     private void SoberUp()
     {
         isDrunk = false;
+        isPlastered = false;
         Inebriate();
     }
 
     private void Inebriate()
     {
-        isPlastered = false;
         ChangeToSoberSprite();
+        StartSoberingUp();
     }
 
     private void ChangeToSoberSprite()
