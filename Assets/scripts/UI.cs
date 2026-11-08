@@ -9,6 +9,8 @@ public class UI : MonoBehaviour
    public GameTimer GameTimer;
    public CanvasGroup StartScreenCanvasGroup;
    public CanvasGroup GameOverScreenCanvasGroup;
+   public string Score { get; set; }
+
 
    public void ShowScore()
    {
@@ -16,7 +18,7 @@ public class UI : MonoBehaviour
    }
    public void ResetScore()
    {
-      ScoreText.text = Score: 0;
+      //ScoreText.text = Score = 0;
    }
    
    public void ShowTime()

@@ -5,20 +5,25 @@ public class Game : MonoBehaviour
     public GameTimer GameTimer;
     public UI UI;
     public Corgi Corgi;
-public BeerPlacer BeerPlacer;
-public BonePlacer BonePlacer;
-public PillPlacer PillPlacer;
-public MoonshinePlacer MoonshinePlacer;
-public bool IsPlaying;
+    public BeerPlacer BeerPlacer;
+    public BonePlacer BonePlacer;
+    public PillPlacer PillPlacer;
+    public MoonshinePlacer MoonshinePlacer;
+    private bool isPlaying;
 
    
-    private bool isGameRunning = false;
+    private bool isOKtoCreate = false;
     
     public void Start()
     {
         UI.HideGameOverScreen();
         UI.ShowStartScreen();
         OnPlayButtonClicked();
+    }
+
+    public bool IsPlaying()
+    {
+        return isOKtoCreate;
     }
 
     private void OnPlayButtonClicked()
@@ -29,7 +34,7 @@ public bool IsPlaying;
 
     private void InitializeGame()
     {
-        isGameRunning = true;
+        isOKtoCreate = true;
         GameTimer.StartTimer(10, OnTimerDone);
         StartPlacers();
         ScoreKeeper.ResetScore();
@@ -39,16 +44,17 @@ public bool IsPlaying;
 
     private void StartPlacers()
     {
+        isPlaying = true;
+        isOKtoCreate = true;
         BeerPlacer.StartPlacing();
         BonePlacer.StartPlacing();
         PillPlacer.StartPlacing();
         MoonshinePlacer.StartPlacing();
-        
     }
 
     private void OnTimerDone()
     {
-        isGameRunning = false;
+        isOKtoCreate = false;
         UI.ShowGameOverScreen();
         StopPlacers();
     }
@@ -64,24 +70,13 @@ public bool IsPlaying;
     
     public void Update()
     {
-        if (isGameRunning)
+        if (!isPlaying)
+            return;
+        
+        if (isOKtoCreate)
         {
             UI.ShowTime();
         }
     }
-    
-    }
-    public void IsPlaying()
-    {
-        return isGameRunning;
-    }
-    
-    public void OnPlayAgainButtonClicked()
-    {
-        UI.HideGameOverScreen();
-        InitializeGame();
-    }
-
-
     
 }

@@ -60,9 +60,11 @@ public class TimedObjectPlacer : MonoBehaviour
     IEnumerator CountdownUntilCreation()
     {
         isOKtoCreate = false;
+        
         float secondsToWait = Random.Range(minimumSecondsToWait, maximumSecondsToWait);
         yield return new WaitForSeconds(secondsToWait);
         Place();
+        
         isOKtoCreate = true;
     }
     protected virtual void Place()
