@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameParameters
 {
-    public static int GameDurationInSeconds = 10;
+    public static int GameDurationInSeconds = 60;
     public static float CorgiMoveSpeed = 5f;
 
     public static float PoopSecondsOnScreen = 2f;
@@ -24,9 +24,6 @@ public class GameParameters
     public static float PillMinimumSecondsToWait = 2f;
     public static float PillMaximumSecondsToWait = 5f;
     
-    public static float WaterBowlSecondsOnScreen = 0.5f;
-    public static float WaterBowlMinimumSecondsToWait = 0.5f;
-    public static float WaterBowlMaximumSecondsToWait = 1f;
     
     public static float MoonshineSecondsOnScreen = 5f;
     public static float MoonshineMinimumSecondsToWait = 0.5f;

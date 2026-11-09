@@ -22,8 +22,6 @@ public class Game : MonoBehaviour
         UI.ShowStartScreen();
         UI.HideGameOverScreen();
         Music.PlayMenuMusic();
-        OnPlayButtonClicked();
-        OnPlayAgainButtonClicked();
     }
 
     public bool IsPlaying()
@@ -41,7 +39,7 @@ public class Game : MonoBehaviour
     private void InitializeGame()
     {
         isOKtoCreate = true;
-        GameTimer.StartTimer(10, OnTimerDone);
+        GameTimer.StartTimer(60, OnTimerDone);
         StartPlacers();
         ScoreKeeper.ResetScore();
         UI.ResetScore();

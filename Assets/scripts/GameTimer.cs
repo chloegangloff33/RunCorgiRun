@@ -6,15 +6,16 @@ public class GameTimer : MonoBehaviour
 {
     private int timeRemaining;
     private bool isStopped;
+    public GameParameters GameParameters;
     
     private Action methodToCallWhenTimeIsOver;
     
-    public void StartTimer(int durationInSeconds, 
+    public void StartTimer(int GameDurationInSeconds, 
         Action methodToCallWhenTimeIsOver)
     {
         this.methodToCallWhenTimeIsOver = methodToCallWhenTimeIsOver;
         isStopped = false;
-        timeRemaining = durationInSeconds;
+        timeRemaining = GameDurationInSeconds;
         StartCoroutine(TickOneSecond());
     }
 

@@ -30,7 +30,7 @@ public class UI : MonoBehaviour
    public void HideStartScreen()
    {
       CanvasGroupDisplayer.Hide(StartScreenCanvasGroup);
-      GameTimer.StartTimer(durationInSeconds: 10, OnTimerFinished);
+      GameTimer.StartTimer(GameDurationInSeconds: 10, OnTimerFinished);
    }
    
    public void ShowStartScreen()

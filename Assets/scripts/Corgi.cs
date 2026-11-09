@@ -183,6 +183,7 @@ public class Corgi : MonoBehaviour
         isDrunk = false;
         isPlastered = false;
         BubbleParticles.Stop();
+        ChangeToSoberSprite();
     }
 
     private void Inebriate()
