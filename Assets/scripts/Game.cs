@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+    //static can't inherit from things
     public GameTimer GameTimer;
     public UI UI;
     public Corgi Corgi;
@@ -10,15 +11,17 @@ public class Game : MonoBehaviour
     public PillPlacer PillPlacer;
     public MoonshinePlacer MoonshinePlacer;
     private bool isPlaying;
-
-   
     private bool isOKtoCreate = false;
+
+    public Music Music;
+    
     
     public void Start()
     {
-        UI.HideGameOverScreen();
         UI.ShowStartScreen();
+        UI.HideGameOverScreen();
         OnPlayButtonClicked();
+        Music.PlayMenuMusic();
     }
 
     public bool IsPlaying()
@@ -40,6 +43,7 @@ public class Game : MonoBehaviour
         ScoreKeeper.ResetScore();
         UI.ResetScore();
         Corgi.Reset();
+        Music.PlayGameMusic();
     }
 
     private void StartPlacers()
@@ -57,6 +61,7 @@ public class Game : MonoBehaviour
         isOKtoCreate = false;
         UI.ShowGameOverScreen();
         StopPlacers();
+        Music.PlayMenuMusic();
     }
 
     private void StopPlacers()
@@ -67,16 +72,21 @@ public class Game : MonoBehaviour
         MoonshinePlacer.StopPlacing();
         
     }
+
+    public void OnPlayAgainButtonClicked()
+    {
+        UI.HideGameOverScreen();
+        InitializeGame();
+    }
     
     public void Update()
     {
-        if (!isPlaying)
-            return;
-        
         if (isOKtoCreate)
         {
             UI.ShowTime();
         }
+        if (!isPlaying)
+            return;
     }
     
 }

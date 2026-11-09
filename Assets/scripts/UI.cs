@@ -4,12 +4,13 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class UI : MonoBehaviour
 {
-   public static TMP_Text ScoreText;
-   public static TMP_Text TimeText;
+   public TMP_Text ScoreText;
+   public TMP_Text TimeText;
    public GameTimer GameTimer;
    public CanvasGroup StartScreenCanvasGroup;
    public CanvasGroup GameOverScreenCanvasGroup;
-   public string Score { get; set; }
+   public CanvasGroup GUICanvasGroup;
+   public string score { get; set; }
 
 
    public void ShowScore()
@@ -18,7 +19,7 @@ public class UI : MonoBehaviour
    }
    public void ResetScore()
    {
-      //ScoreText.text = Score = 0;
+      ScoreText.text = "Score: 0";
    }
    
    public void ShowTime()
@@ -29,7 +30,7 @@ public class UI : MonoBehaviour
    public void HideStartScreen()
    {
       CanvasGroupDisplayer.Hide(StartScreenCanvasGroup);
-      //GameTimer.StartTimer(durationInSeconds: 10, OnTimerFinished);
+      GameTimer.StartTimer(durationInSeconds: 10, OnTimerFinished);
    }
    
    public void ShowStartScreen()
@@ -44,11 +45,19 @@ public class UI : MonoBehaviour
    {
       CanvasGroupDisplayer.Hide(GameOverScreenCanvasGroup);
    }
-   
+   public void ShowGUI()
+   {
+      CanvasGroupDisplayer.Show(GUICanvasGroup);
+   }
+   public void HideGUI()
+   {
+      CanvasGroupDisplayer.Hide(GUICanvasGroup);
+   }
    
 
    public void OnTimerFinished()
    {
-      
+      ShowGameOverScreen();
+      HideGUI();
    }
 }

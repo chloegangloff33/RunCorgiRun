@@ -75,8 +75,8 @@ public class Corgi : MonoBehaviour
 
     public void MoveManually(Vector2 direction)
     {
-        //if (!Game.IsPlaying())
-          //  return;
+        if (!Game.IsPlaying())
+            return;
         
             if (isPlastered)
                 return;
