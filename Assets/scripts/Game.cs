@@ -14,14 +14,16 @@ public class Game : MonoBehaviour
     private bool isOKtoCreate = false;
 
     public Music Music;
+    public Sounds Sounds;
     
     
     public void Start()
     {
         UI.ShowStartScreen();
         UI.HideGameOverScreen();
-        OnPlayButtonClicked();
         Music.PlayMenuMusic();
+        OnPlayButtonClicked();
+        OnPlayAgainButtonClicked();
     }
 
     public bool IsPlaying()
@@ -29,9 +31,10 @@ public class Game : MonoBehaviour
         return isOKtoCreate;
     }
 
-    private void OnPlayButtonClicked()
+    public void OnPlayButtonClicked()
     {
         UI.HideStartScreen();
+        Sounds.PlayPoopSound();
         InitializeGame();
     }
 
@@ -76,6 +79,7 @@ public class Game : MonoBehaviour
     public void OnPlayAgainButtonClicked()
     {
         UI.HideGameOverScreen();
+        Sounds.PlayPoopSound();
         InitializeGame();
     }
     

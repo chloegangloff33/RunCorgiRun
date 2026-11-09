@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class MoonshinePlacer : TimedObjectPlacer
 {
+    public Sounds Sounds;
+    
     public void Start()
         {
             minimumSecondsToWait = GameParameters.MoonshineMinimumSecondsToWait;
@@ -12,5 +14,6 @@ public class MoonshinePlacer : TimedObjectPlacer
     protected override void Place()
     {
         Instantiate(TimedObjectPrefab, position:SpawnTools.RandomTopOfScreenLocationWorldSpace(), Quaternion.identity);
+        Sounds.PlayFallingSound();
     }
 }

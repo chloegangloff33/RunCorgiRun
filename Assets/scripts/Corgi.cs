@@ -16,6 +16,7 @@ public class Corgi : MonoBehaviour
     
     public UI UI;
     public Game Game;
+    public Sounds Sounds;
     
     private int randomMoveCounter = 0;
     private int lastRandomeDirection = 0;
@@ -113,6 +114,7 @@ public class Corgi : MonoBehaviour
         if (other.gameObject.CompareTag("Moonshine"))
         {
             GetPlastered();
+            Sounds.PlayMoonshineSound();
             Destroy(other.gameObject);
         }
     }
@@ -131,17 +133,20 @@ public class Corgi : MonoBehaviour
             if (other.gameObject.CompareTag("Beer"))
             {
                 GetDrunk();
+                Sounds.PlayBeerSound();
                 Destroy(other.gameObject);
             }
         }
         else if (other.gameObject.CompareTag("Bone"))
         {
             AddPointToScore();
+            Sounds.PlayBoneSound();
             Destroy(other.gameObject);
         }
         else if (other.gameObject.CompareTag("Pill"))
         {
             SoberUp();
+            Sounds.PlayPillSound();
             Destroy(other.gameObject);
         }
     }

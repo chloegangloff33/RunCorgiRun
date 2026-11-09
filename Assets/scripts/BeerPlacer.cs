@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class BeerPlacer : TimedObjectPlacer
 {
+    public Sounds Sounds;
+
     public void Start()
     {
         minimumSecondsToWait = GameParameters.BeerMinimumSecondsToWait;
